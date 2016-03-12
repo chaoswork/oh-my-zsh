@@ -17,8 +17,13 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 bindkey '^R' history-incremental-search-backward
 
-PROMPT='${LPS}${ret_status}%{$?%}]%{$fg_bold[cyan]%}[%d]${prompt_jobs}%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%}
+function get_pwd(){
+    echo "${PWD/$HOME/~}"
+}
+
+PROMPT='${LPS}${ret_status}%{$?%}]%{$fg_bold[cyan]%}[$(get_pwd)]${prompt_jobs}%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%}
 > '
+
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
