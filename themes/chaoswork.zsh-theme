@@ -4,6 +4,7 @@ local ret_status="%(?:%{$fg_bold[green]%}[:%{$fg_bold[red]%}[)"
 local prompt_jobs="%(1j.%{$fg[green]%}[%j]%{$reset_color%} .)"
 
 # set my-own vi mode
+# http://dougblack.io/words/zsh-vi-mode.html
 LPS=""
 function zle-line-init zle-keymap-select {
     VIM_PROMPT="%{$fg_bold[yellow]%}[% NORMAL]% %{$reset_color%}"
